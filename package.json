@@ -64,7 +64,7 @@
     "passport-saml": "1.2.0",
     "redis": "^2.8.0",
     "winston": "^3.0.0",
-    "xml-crypto": "^1.4.0",
+    "xml-crypto": "^2.0.0",
     "xml2js": "^0.4.23",
     "xmldom": "^0.1.27",
     "yargs": "^15.3.0"
