@@ -218,7 +218,7 @@ const getAuthSalmOptions = (
   return fromNullable(req)
     .mapNullable(r => r.query)
     .mapNullable(q => q.authLevel)
-    .chain((authLevel) =>
+    .chain(authLevel =>
       lookup(authLevel.toString(), SPID_LEVELS)
         .map(authnContext => ({
           authnContext,
