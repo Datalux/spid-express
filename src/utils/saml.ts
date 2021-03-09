@@ -164,7 +164,7 @@ const getEntrypointCerts = (
     .mapNullable(r => r.query)
     .mapNullable(q => q.entityID)
     .chain(entityID =>
-      fromNullable(idps[entityID]).map(
+      fromNullable(idps[entityID.toString()]).map(
         (idp): IEntrypointCerts => ({
           cert: idp.cert.toArray(),
           entryPoint: idp.entryPoint,
@@ -218,8 +218,8 @@ const getAuthSalmOptions = (
   return fromNullable(req)
     .mapNullable(r => r.query)
     .mapNullable(q => q.authLevel)
-    .chain((authLevel: string) =>
-      lookup(authLevel, SPID_LEVELS)
+    .chain((authLevel) =>
+      lookup(authLevel.toString(), SPID_LEVELS)
         .map(authnContext => ({
           authnContext,
           forceAuthn: authLevel !== "SpidL1"
